@@ -330,10 +330,81 @@ footer.site nav a:hover { color: hsl(var(--ink)); }
   border-radius: 10px;
   border: 1px solid hsl(var(--border));
   box-shadow: var(--shadow-lg);
+  transition: opacity .15s;
 }
-.hero-screenshot {
-  border-radius: 12px;
+.screenshot-wrap {
+  position: relative;
+  cursor: zoom-in;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
 }
+/* remove double shadow from img when inside wrap */
+.screenshot-wrap .screenshot-img { box-shadow: none; }
+.screenshot-wrap:hover .screenshot-img { opacity: .92; }
+.screenshot-wrap::after {
+  content: "⤢  Expand";
+  position: absolute;
+  bottom: 11px;
+  right: 11px;
+  background: hsl(220 13% 7% / .88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: hsl(var(--ink-muted));
+  font-size: .69rem;
+  font-weight: 650;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid hsl(var(--border));
+  opacity: 0;
+  transition: opacity .2s;
+  pointer-events: none;
+}
+.screenshot-wrap:hover::after { opacity: 1; }
+
+/* ── Lightbox ────────────────────────────────────────────────────────────── */
+.lb {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(7, 9, 13, .93);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  cursor: zoom-out;
+}
+.lb.open { display: flex; }
+.lb img {
+  max-width: min(100%, 1280px);
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 1px solid hsl(var(--border));
+  box-shadow: 0 40px 120px rgba(0,0,0,.85);
+  cursor: default;
+}
+.lb-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: hsl(var(--ink-muted));
+  cursor: pointer;
+  padding: 7px 11px;
+  border-radius: 9px;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--surface-card));
+  transition: all .15s;
+  user-select: none;
+  font-family: inherit;
+}
+.lb-close:hover { color: hsl(var(--ink)); border-color: hsl(var(--ink-subtle)); }
 
 /* ── Responsive ──────────────────────────────────────────────────────────── */
 @media (max-width: 940px) {

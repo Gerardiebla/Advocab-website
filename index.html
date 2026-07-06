@@ -54,7 +54,9 @@
 
     <!-- Hero visual: real Batch screen screenshot -->
     <div class="show-media">
-      <img src="img/screenshots/batch.png" alt="Advocab Batch screen — vocabulary review table with IPA, definitions, frequency ranks, grammar annotations and interlinear context" class="screenshot-img hero-screenshot" />
+      <div class="screenshot-wrap">
+        <img src="img/screenshots/batch.png" alt="Advocab Batch screen — vocabulary review table with IPA, definitions, frequency ranks, grammar annotations and interlinear context" class="screenshot-img hero-screenshot" />
+      </div>
     </div>
   </div>
 </section>
@@ -138,7 +140,9 @@
           </ul>
         </div>
         <div class="show-media">
-          <img src="img/screenshots/import.png" alt="Advocab Import screen — URL import with real-time coverage bar and new words highlighted in context" class="screenshot-img" />
+          <div class="screenshot-wrap">
+            <img src="img/screenshots/import.png" alt="Advocab Import screen — URL import with real-time coverage bar and new words highlighted in context" class="screenshot-img" />
+          </div>
         </div>
       </div>
 
@@ -155,7 +159,9 @@
           </ul>
         </div>
         <div class="show-media">
-          <img src="img/screenshots/batch.png" alt="Advocab Batch screen — sortable word table with IPA, frequency ranks, grammar tags and interlinear context strip" class="screenshot-img" />
+          <div class="screenshot-wrap">
+            <img src="img/screenshots/batch.png" alt="Advocab Batch screen — sortable word table with IPA, frequency ranks, grammar tags and interlinear context strip" class="screenshot-img" />
+          </div>
         </div>
       </div>
 
@@ -172,7 +178,9 @@
           </ul>
         </div>
         <div class="show-media">
-          <img src="img/screenshots/finalise.png" alt="Advocab Finalise screen — three-pane card editor with LLM chat, definition fields and grammar-annotated cloze context" class="screenshot-img" />
+          <div class="screenshot-wrap">
+            <img src="img/screenshots/finalise.png" alt="Advocab Finalise screen — three-pane card editor with LLM chat, definition fields and grammar-annotated cloze context" class="screenshot-img" />
+          </div>
         </div>
       </div>
 
@@ -189,7 +197,9 @@
           </ul>
         </div>
         <div class="show-media">
-          <img src="img/screenshots/cloze.png" alt="Advocab Cloze screen — grammar decision points extracted from real text: article choice, verb conjugation, preposition choice, plural forms" class="screenshot-img" />
+          <div class="screenshot-wrap">
+            <img src="img/screenshots/cloze.png" alt="Advocab Cloze screen — grammar decision points extracted from real text: article choice, verb conjugation, preposition choice, plural forms" class="screenshot-img" />
+          </div>
         </div>
       </div>
 
@@ -206,7 +216,9 @@
           </ul>
         </div>
         <div class="show-media">
-          <img src="img/screenshots/language-brain.png" alt="Advocab Language Brain — semantic galaxy map of studied vocabulary coloured by known/learning/unknown status" class="screenshot-img" />
+          <div class="screenshot-wrap">
+            <img src="img/screenshots/language-brain.png" alt="Advocab Language Brain — semantic galaxy map of studied vocabulary coloured by known/learning/unknown status" class="screenshot-img" />
+          </div>
         </div>
       </div>
 
@@ -336,6 +348,39 @@
     <p class="muted">Local-first vocabulary mining for advanced learners · Runs on your machine</p>
   </div>
 </footer>
+
+<!-- ═══════════════════════ Lightbox ═══════════════════════ -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Full-size screenshot">
+  <button class="lb-close" id="lb-close" aria-label="Close">✕</button>
+  <img id="lb-img" src="" alt="" />
+</div>
+<script>
+(function () {
+  var lb    = document.getElementById('lb');
+  var img   = document.getElementById('lb-img');
+  var close = document.getElementById('lb-close');
+
+  function open(src, alt) {
+    img.src = src;
+    img.alt = alt;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function shut() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.screenshot-wrap').forEach(function (wrap) {
+    var el = wrap.querySelector('img');
+    wrap.addEventListener('click', function () { open(el.src, el.alt); });
+  });
+
+  lb.addEventListener('click', function (e) { if (e.target !== img) shut(); });
+  close.addEventListener('click', shut);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') shut(); });
+})();
+</script>
 
 </body>
 </html>
