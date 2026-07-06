@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advocab — Advanced Vocabulary Deck Builder for serious language learners</title>
+  <meta name="description" content="A local-first vocabulary mining engine for advanced (C1+) language learners. Harvest words from Kindle, YouTube, articles and text, filter what you already know, and mint polished cloze cards to Anki — all on your own machine." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600;650;700;800;850&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%233b82f6'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='800'>A</text></svg>" />
+</head>
+<body>
+
+<!-- ═══════════════════════ Header ═══════════════════════ -->
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="logo">A</span>
+      <span>Advocab<small>Vocabulary Deck Builder</small></span>
+    </a>
+    <nav class="top">
+      <span class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#how">How it works</a>
+        <a href="#start">Get started</a>
+        <a href="#faq">FAQ</a>
+      </span>
+      <a class="btn btn-primary" href="#download">Download for Windows</a>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+
+<!-- ═══════════════════════ Hero ═══════════════════════ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">◆ Local-first · Windows desktop</span>
+      <h1>Turn everything you read into <span class="grad">flashcards worth studying.</span></h1>
+      <p class="lead">A vocabulary mining engine for advanced learners. It reads your sources, hides the words you already know, and lets you quickly review and approve the rest into Anki.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#download">↓ Download for Windows</a>
+        <a class="btn btn-ghost" href="#how">See how it works</a>
+      </div>
+      <div class="meta">
+        <span><span class="dot-ok"></span> <b>Windows 10 / 11</b></span>
+        <span>🔒 <b>Runs entirely on your machine</b></span>
+        <span>🗝 <b>No account, no sign-in</b></span>
+      </div>
+    </div>
+
+    <!-- Hero visual: real Batch screen screenshot -->
+    <div class="show-media">
+      <img src="img/screenshots/batch.png" alt="Advocab Batch screen — vocabulary review table with IPA, definitions, frequency ranks, grammar annotations and interlinear context" class="screenshot-img hero-screenshot" />
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ Overview / pipeline ═══════════════════════ -->
+<section id="overview">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">How the app works</span>
+      <h2 class="section-title">A pipeline, not just a word list</h2>
+      <p class="section-lede">Advocab is built around one idea: most words aren't worth your attention, and the few that are deserve a great card. It gets you there in five stages.</p>
+    </div>
+    <div class="pipeline">
+      <div class="pipe-step">
+        <div class="ic">📥</div><h4>Sources</h4>
+        <p>Kindle look-ups, pasted text, YouTube captions, article URLs, CSV.</p>
+      </div>
+      <div class="pipe-step">
+        <div class="ic">🧹</div><h4>Gatekeeper</h4>
+        <p>spaCy lemmatises, then a frequency filter drops what you already know.</p>
+      </div>
+      <div class="pipe-step">
+        <div class="ic">🧠</div><h4>Intelligence</h4>
+        <p>A built dictionary fills gloss, gender &amp; plural; a local LLM mines idioms.</p>
+      </div>
+      <div class="pipe-step">
+        <div class="ic">⚖️</div><h4>Batch</h4>
+        <p>Keyboard-driven review — keep, skip, or approve in a few keystrokes.</p>
+      </div>
+      <div class="pipe-step">
+        <div class="ic">🎴</div><h4>Anki</h4>
+        <p>Approved cards mint straight to Anki as polished cloze notes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ Features ═══════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Why it's different</span>
+      <h2 class="section-title">Smart where it counts, deterministic everywhere else</h2>
+      <p class="section-lede">The LLM is reserved for what it's actually good at — mining idioms and writing mnemonics. Everything else is fast, local, and repeatable.</p>
+    </div>
+    <div class="features">
+      <div class="feature"><div class="fic">🔒</div><h3>Truly local-first</h3><p>Your vocabulary, databases and API keys live on your own disk. Nothing is uploaded. Works fully offline once set up.</p></div>
+      <div class="feature"><div class="fic">📖</div><h3>Deterministic dictionary</h3><p>Translation, gender and plural come from a dictionary built from Wiktextract — no LLM guesswork, stable run to run.</p></div>
+      <div class="feature"><div class="fic">💬</div><h3>LLM idiom mining</h3><p>A local Ollama model reads whole sentences to surface set phrases like <em>jemandem ins Auge fallen</em> that a word filter would miss.</p></div>
+      <div class="feature"><div class="fic">⌨️</div><h3>One-key batch review</h3><p><code style="font-size:.85em">Space</code> = I know it, <code style="font-size:.85em">Enter</code> = approve, <code style="font-size:.85em">Ctrl+Z</code> = undo. Review hundreds of candidates in minutes.</p></div>
+      <div class="feature"><div class="fic">🌍</div><h3>Multi-language</h3><p>German out of the box, plus French, Spanish, Italian, Portuguese, Russian, Dutch and experimental CJK — each with its own profile.</p></div>
+      <div class="feature"><div class="fic">🎯</div><h3>Cloze done right</h3><p>The blank is placed deterministically in the original sentence — umlaut-tolerant, handles inflection and split idioms like <em>fiel … ins Auge</em>.</p></div>
+      <div class="feature"><div class="fic">🧩</div><h3>AI extras on demand</h3><p>Lemmatization, embeddings, image generation and voice synthesis install from inside the app only if you want them — skip anything you don't need.</p></div>
+      <div class="feature"><div class="fic">🧪</div><h3>Language Brain</h3><p>An interactive map of your vocabulary by meaning — see clusters, gaps, and what you already know at a glance.</p></div>
+      <div class="feature"><div class="fic">🎴</div><h3>Straight to Anki</h3><p>Mints rich cloze notes via AnkiConnect — word, translation, grammar, gender, plural, example, mnemonic, audio and source.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ How it works (screens) ═══════════════════════ -->
+<section id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">A look inside</span>
+      <h2 class="section-title">Five screens. One clean workflow.</h2>
+      <p class="section-lede">Every stage of the pipeline is a page you navigate from the left rail. Here's what each one looks like in practice.</p>
+    </div>
+
+    <div class="showcase">
+
+      <!-- Import -->
+      <div class="show-row">
+        <div class="show-text">
+          <span class="kick">① Import</span>
+          <h3>Bring words in from anywhere</h3>
+          <p>Paste an article URL, drop in text, load your connected Kindle's look-up history, or import a CSV. Check coverage before you commit — Advocab shows exactly how much of the text you already know and highlights new words in context.</p>
+          <ul>
+            <li>Five source types in one panel: Paste / URL, YouTube, Kindle, CSV, Language Brain</li>
+            <li>Coverage bar splits the text into known / learning / new at a glance</li>
+            <li>"My Import Rules" controls which word types, idioms and collocations to harvest</li>
+          </ul>
+        </div>
+        <div class="show-media">
+          <img src="img/screenshots/import.png" alt="Advocab Import screen — URL import with real-time coverage bar and new words highlighted in context" class="screenshot-img" />
+        </div>
+      </div>
+
+      <!-- Batch -->
+      <div class="show-row reverse">
+        <div class="show-text">
+          <span class="kick">② Batch</span>
+          <h3>Review candidates at speed</h3>
+          <p>A sortable, filterable table of everything that passed the gatekeeper. Each row shows definition, IPA, frequency rank, register and source. Focus a word and the original sentence appears at the bottom with a grammar-tagged interlinear strip — full context before you decide.</p>
+          <ul>
+            <li>Filter by source, part of speech, register &amp; frequency rank</li>
+            <li>Approve, mark-known or undo with a single keystroke</li>
+            <li>Batch-generate audio &amp; images for a whole selection at once</li>
+          </ul>
+        </div>
+        <div class="show-media">
+          <img src="img/screenshots/batch.png" alt="Advocab Batch screen — sortable word table with IPA, frequency ranks, grammar tags and interlinear context strip" class="screenshot-img" />
+        </div>
+      </div>
+
+      <!-- Finalizer -->
+      <div class="show-row">
+        <div class="show-text">
+          <span class="kick">③ Finalise</span>
+          <h3>Polish the keepers</h3>
+          <p>A three-pane editor: your pending cards on the left, a full field editor in the middle, and "Ask the LLM" on the right for a better sense, a mnemonic, or a rewritten example. Review the grammar-annotated cloze context, generate audio or an image, then mint to Anki.</p>
+          <ul>
+            <li>Edit every field — definition, IPA, gender, plural, cloze sentence, usage notes</li>
+            <li>Ask-the-LLM chat for word enrichment on demand</li>
+            <li>One-click TTS &amp; image generation per card, then mint straight to Anki</li>
+          </ul>
+        </div>
+        <div class="show-media">
+          <img src="img/screenshots/finalise.png" alt="Advocab Finalise screen — three-pane card editor with LLM chat, definition fields and grammar-annotated cloze context" class="screenshot-img" />
+        </div>
+      </div>
+
+      <!-- Cloze -->
+      <div class="show-row reverse">
+        <div class="show-text">
+          <span class="kick">④ Cloze</span>
+          <h3>Grammar drills from sentences you've read</h3>
+          <p>Paste any text and Advocab finds every grammatical decision point — article choice, verb conjugation, preposition, plural form, adjective ending. Each becomes its own targeted cloze card. Pick the patterns worth drilling and mint them straight to Anki.</p>
+          <ul>
+            <li>Six decision types: articles, verb conjugation, prepositions, plurals, reflexive pronouns, adjective endings</li>
+            <li>Dozens of drill cards extracted from a single paragraph of real text</li>
+            <li>Send text straight over from the Import page — no copy-paste needed</li>
+          </ul>
+        </div>
+        <div class="show-media">
+          <img src="img/screenshots/cloze.png" alt="Advocab Cloze screen — grammar decision points extracted from real text: article choice, verb conjugation, preposition choice, plural forms" class="screenshot-img" />
+        </div>
+      </div>
+
+      <!-- Language Brain -->
+      <div class="show-row">
+        <div class="show-text">
+          <span class="kick">⑤ Lab · Language Brain</span>
+          <h3>See your vocabulary as a map</h3>
+          <p>Every word you've studied, laid out by meaning in a zoomable galaxy. Pan and click any node to see its nearest semantic neighbours. Switch to <em>State of Your German</em> for a live CEFR depth estimate, frequency-band coverage, and reachable reading levels — updated every time you open it.</p>
+          <ul>
+            <li>Thousands of nodes rendered from meaning-based local embeddings</li>
+            <li>Click any node to explore its semantic neighbourhood</li>
+            <li>CEFR depth estimate, frequency-band breakdown &amp; reachable reading levels</li>
+          </ul>
+        </div>
+        <div class="show-media">
+          <img src="img/screenshots/language-brain.png" alt="Advocab Language Brain — semantic galaxy map of studied vocabulary coloured by known/learning/unknown status" class="screenshot-img" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ What's in the box ═══════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Small download, no bloat</span>
+      <h2 class="section-title">Tiny by design</h2>
+      <p class="section-lede">A deliberately lean installer. The heavy, optional pieces — spaCy language models, sentence-transformers, PyTorch for image generation, and voice synthesis — install from inside the app only when you ask for them. Start mining vocabulary straight away.</p>
+    </div>
+    <div class="boxgrid">
+      <div class="boxcard in">
+        <div class="bh">✔ In the box</div>
+        <ul>
+          <li><b>The app itself</b> — native Windows window, no browser needed</li>
+          <li><b>Import, batch processing &amp; finalise</b> workflow, ready to go</li>
+          <li><b>IPA transcription</b> for pronunciation</li>
+          <li><b>OpenAI / Ollama client</b> and gTTS audio</li>
+          <li><b>A sanitised default config</b> — ships with no keys</li>
+        </ul>
+      </div>
+      <div class="boxcard out">
+        <div class="bh">↧ Installed on demand</div>
+        <ul>
+          <li><b>spaCy + language models</b> — lemmatization and grammar tagging</li>
+          <li><b>sentence-transformers</b> — register classification &amp; Language Brain</li>
+          <li><b>PyTorch + diffusers</b> — local image generation</li>
+          <li><b>Coqui XTTS</b> — voice cloning</li>
+          <li><b>Language dictionaries</b> — dictionary extracts built or downloaded per language</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ Getting started ═══════════════════════ -->
+<section id="start">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Getting started</span>
+      <h2 class="section-title">From download to your first cards</h2>
+      <p class="section-lede">Five steps. The first three take a couple of minutes; the LLM and Anki steps are only needed for idiom mining and exporting.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><div>
+        <h3>Download &amp; install</h3>
+        <p>Grab the installer below and run it. It installs per-user to your <code>%LOCALAPPDATA%</code> folder — <b>no admin rights required</b>. Windows may need the free WebView2 runtime, which the installer sets up for you.</p>
+      </div></div>
+      <div class="step"><div class="num">2</div><div>
+        <h3>First launch &amp; setup wizard</h3>
+        <p>The window opens straight away. A setup wizard asks for your target language and offers to download its spaCy model (~45 MB) and frequency list, then builds the dictionary. Pick German, French, Spanish and more.</p>
+      </div></div>
+      <div class="step"><div class="num">3</div><div>
+        <h3>Import something</h3>
+        <p>Paste a paragraph, fetch an article URL, or read your Kindle look-ups on the <b>Import</b> page. Hit <em>Check coverage</em> to preview, then <em>Import</em> to stage candidates for review.</p>
+      </div></div>
+      <div class="step"><div class="num">4</div><div>
+        <h3>Connect a local LLM <span class="opt">optional</span></h3>
+        <p>For idiom mining and card enrichment, run <a href="https://ollama.com" target="_blank" rel="noopener" style="color:hsl(var(--accent-2))">Ollama</a> locally and pull a model (<code>ollama pull gemma4:e2b</code>). Single-word import works without it.</p>
+      </div></div>
+      <div class="step"><div class="num">5</div><div>
+        <h3>Open Anki to mint cards <span class="opt">optional</span></h3>
+        <p>Have <a href="https://apps.ankiweb.net" target="_blank" rel="noopener" style="color:hsl(var(--accent-2))">Anki</a> open with the <a href="https://ankiweb.net/shared/info/2055492159" target="_blank" rel="noopener" style="color:hsl(var(--accent-2))">AnkiConnect</a> add-on. Approve cards in <b>Batch</b>, polish in <b>Finalise</b>, and they mint straight into your deck.</p>
+      </div></div>
+      <div class="step"><div class="num">✦</div><div>
+        <h3>Add the extras you want</h3>
+        <p>Open <b>Settings → AI Extras</b> to install lemmatization, embeddings, image generation or voice — each downloads into a sidecar and lights up without a restart. Skip anything you don't need.</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ Download ═══════════════════════ -->
+<section id="download">
+  <div class="wrap">
+    <div class="download-band">
+      <span class="eyebrow">◆ Free · Windows 10 / 11</span>
+      <h2 style="margin-top:16px">Download the Lite desktop app</h2>
+      <p>A single installer, everything on your own machine — no account, no cloud, no telemetry. Add the heavy AI extras later, from inside the app, only if you want them.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="downloads/AdvocabDeckBuilder-1.0.0-setup.exe" download>↓ Download installer <span class="sz">· .exe · 59 MB</span></a>
+        <a class="btn btn-ghost" href="#start">Read the setup steps</a>
+      </div>
+      <div class="reqs">
+        <span>🪟 Windows 10 (1803+) or 11</span>
+        <span>🔒 Runs 100% locally</span>
+        <span>🛠 Per-user install · no admin</span>
+        <span>🧩 AI extras optional</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FAQ ═══════════════════════ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Questions</span>
+      <h2 class="section-title">Good to know</h2>
+    </div>
+    <div class="faq">
+      <details open><summary>Is my data sent anywhere?</summary><p>No. Advocab is local-first: your vocabulary databases, config and any API keys live on your own disk. It works fully offline once set up. If you choose to point it at a cloud LLM, only the text you send for enrichment goes to that provider — everything else stays local.</p></details>
+      <details><summary>Do I need an OpenAI key or a GPU?</summary><p>Neither is required. The core mining pipeline is deterministic and runs on CPU. For idiom mining you can run a free local model with Ollama. A cloud LLM key is optional, and image/voice generation extras are entirely opt-in.</p></details>
+      <details><summary>Which languages are supported?</summary><p>German is the default and most polished. French, Spanish, Italian, Portuguese, Russian and Dutch are supported, with experimental Japanese, Chinese and Korean. Each language is its own profile with separate databases.</p></details>
+      <details><summary>Why is the download so small?</summary><p>The Lite build deliberately ships nothing language- or ML-specific. Lemmatization models, embeddings, image generation and voice install on demand from Settings → AI Extras into a sandboxed sidecar environment — so you only download what you'll actually use.</p></details>
+      <details><summary>Do I have to use Anki?</summary><p>Anki is the export target and where you ultimately study, but you can import, review and finalise cards without it open. Cards mint to Anki when you have it running with the AnkiConnect add-on.</p></details>
+      <details><summary>Will it need admin rights or touch system files?</summary><p>No. It installs per-user into your <code>%LOCALAPPDATA%</code> folder and keeps its databases and generated media right beside the app, so upgrades and uninstalls are clean.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ Footer ═══════════════════════ -->
+<footer class="site">
+  <div class="wrap">
+    <div class="brand"><span class="logo">A</span><span>Advocab</span></div>
+    <nav>
+      <a href="#overview">Overview</a>
+      <a href="#how">How it works</a>
+      <a href="#start">Get started</a>
+      <a href="#download">Download</a>
+    </nav>
+    <p class="muted">Local-first vocabulary mining for advanced learners · Runs on your machine</p>
+  </div>
+</footer>
+
+</body>
+</html>
