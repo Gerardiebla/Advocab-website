@@ -307,6 +307,38 @@ table.mock td .tgt { color: hsl(var(--ink)); font-weight: 600; }
 .reqs { display: flex; gap: 26px; justify-content: center; flex-wrap: wrap; margin-top: 26px; color: hsl(var(--ink-subtle)); font-size: .88rem; }
 .reqs span { display: inline-flex; align-items: center; gap: 7px; }
 
+/* ── Release notes ───────────────────────────────────────────────────────── */
+.release-current {
+  margin: 32px auto 0; max-width: 62ch; text-align: left;
+  background: hsl(var(--surface-card) / .7); border: 1px solid hsl(var(--accent) / .25);
+  border-radius: 14px; padding: 24px 28px;
+}
+.release-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+.release-badge {
+  font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  background: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-2)));
+  color: hsl(var(--accent-fg)); padding: 3px 9px; border-radius: 99px;
+}
+.release-version { font-size: 1rem; font-weight: 750; color: hsl(var(--ink)); }
+.release-date { font-size: .85rem; color: hsl(var(--ink-subtle)); margin-left: auto; }
+.release-notes { list-style: none; padding: 0; margin: 0 0 22px; display: flex; flex-direction: column; gap: 9px; }
+.release-notes li {
+  font-size: .92rem; color: hsl(var(--ink-muted)); line-height: 1.55;
+  padding-left: 18px; position: relative;
+}
+.release-notes li::before { content: '✦'; position: absolute; left: 0; color: hsl(var(--accent)); font-size: .7rem; top: .25em; }
+.release-notes li b { color: hsl(var(--ink)); }
+.release-current .cta { justify-content: flex-start; margin-top: 0; }
+
+.release-prev {
+  margin-top: 22px; font-size: .85rem; color: hsl(var(--ink-subtle));
+  display: flex; align-items: center; gap: 8px; justify-content: center; flex-wrap: wrap;
+}
+.release-prev-label { }
+.release-prev-link { color: hsl(var(--ink-muted)); text-decoration: underline; text-underline-offset: 3px; }
+.release-prev-link:hover { color: hsl(var(--ink)); }
+.release-prev-date { color: hsl(var(--ink-subtle)); }
+
 /* ── FAQ ─────────────────────────────────────────────────────────────────── */
 .faq { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .faq details { background: hsl(var(--surface-card)); border: 1px solid hsl(var(--border-soft)); border-radius: 12px; padding: 4px 20px; }
