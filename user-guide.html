@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Guide — Advocab</title>
+  <meta name="description" content="Complete guide to using Advocab: setup, workflow, pages, LLM features, images, audio, Anki integration, multi-language support, and troubleshooting." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600;650;700;800;850&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%233b82f6'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='800'>A</text></svg>" />
+  <style>
+    body.wiki-page {
+      background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%);
+      color: #f5f5f5;
+      line-height: 1.7;
+    }
+
+    .wiki-container {
+      display: flex;
+      gap: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .wiki-sidebar {
+      flex: 0 0 280px;
+      position: sticky;
+      top: 2rem;
+      height: fit-content;
+      max-height: calc(100vh - 4rem);
+      overflow-y: auto;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+    }
+
+    .wiki-sidebar::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .wiki-sidebar::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 3px;
+    }
+
+    .wiki-sidebar::-webkit-scrollbar-thumb {
+      background: rgba(59, 130, 246, 0.4);
+      border-radius: 3px;
+    }
+
+    .wiki-sidebar::-webkit-scrollbar-thumb:hover {
+      background: rgba(59, 130, 246, 0.6);
+    }
+
+    .wiki-sidebar h3 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.5);
+      margin: 1.5rem 0 0.75rem;
+      padding: 0 0 0.5rem;
+      border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+    }
+
+    .wiki-sidebar h3:first-child {
+      margin-top: 0;
+    }
+
+    .wiki-nav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .wiki-nav li {
+      margin: 0;
+    }
+
+    .wiki-nav a {
+      display: block;
+      padding: 0.5rem 0.75rem;
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      border-left: 2px solid transparent;
+      margin-left: -2px;
+    }
+
+    .wiki-nav a:hover {
+      color: #fff;
+      background: rgba(59, 130, 246, 0.1);
+      border-left-color: #3b82f6;
+      padding-left: calc(0.75rem + 2px);
+    }
+
+    .wiki-nav a.active {
+      color: #3b82f6;
+      background: rgba(59, 130, 246, 0.15);
+      border-left-color: #3b82f6;
+      font-weight: 600;
+      padding-left: calc(0.75rem + 2px);
+    }
+
+    .wiki-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0.25rem 0;
+    }
+
+    .wiki-nav li ul a {
+      font-size: 0.85rem;
+      padding-left: 1.5rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .wiki-nav li ul a:hover {
+      padding-left: calc(1.5rem + 2px);
+    }
+
+    .wiki-nav li ul a.active {
+      padding-left: calc(1.5rem + 2px);
+    }
+
+    .wiki-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .wiki-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .wiki-content > p:first-of-type {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+    }
+
+    .wiki-content h2 {
+      font-size: 1.8rem;
+      margin: 3rem 0 1.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(59, 130, 246, 0.2);
+      color: #fff;
+      font-weight: 700;
+      scroll-margin-top: 100px;
+    }
+
+    .wiki-content h2:first-of-type {
+      margin-top: 2rem;
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .wiki-content h3 {
+      font-size: 1.3rem;
+      margin: 2rem 0 1rem;
+      color: #e0e0e0;
+      font-weight: 600;
+      scroll-margin-top: 100px;
+    }
+
+    .wiki-content h4 {
+      font-size: 1rem;
+      margin: 1.5rem 0 0.75rem;
+      color: #d0d0d0;
+      font-weight: 600;
+    }
+
+    .wiki-content p {
+      margin: 1rem 0;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .wiki-content ul, .wiki-content ol {
+      margin: 1rem 0;
+      padding-left: 2rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .wiki-content li {
+      margin: 0.5rem 0;
+    }
+
+    .wiki-content li strong {
+      color: #fff;
+    }
+
+    .wiki-content code {
+      background: rgba(59, 130, 246, 0.1);
+      padding: 0.2em 0.4em;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9em;
+      color: #a0d8ff;
+    }
+
+    .wiki-content pre {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    .wiki-content pre code {
+      background: none;
+      padding: 0;
+      color: #a0d8ff;
+    }
+
+    .wiki-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+
+    .wiki-content table th {
+      background: rgba(59, 130, 246, 0.15);
+      padding: 0.75rem;
+      text-align: left;
+      font-weight: 600;
+      color: #fff;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+
+    .wiki-content table td {
+      padding: 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .wiki-content table tr:nth-child(even) {
+      background: rgba(59, 130, 246, 0.05);
+    }
+
+    .wiki-box {
+      background: rgba(59, 130, 246, 0.08);
+      border-left: 3px solid #3b82f6;
+      padding: 1rem;
+      margin: 1.5rem 0;
+      border-radius: 6px;
+    }
+
+    .wiki-box strong {
+      color: #fff;
+    }
+
+    .section-nav {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding: 1rem;
+      background: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      flex-wrap: wrap;
+    }
+
+    .section-nav a {
+      padding: 0.5rem 1rem;
+      background: rgba(59, 130, 246, 0.2);
+      color: #3b82f6;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+
+    .section-nav a:hover {
+      background: rgba(59, 130, 246, 0.3);
+      border-color: #3b82f6;
+    }
+
+    @media (max-width: 1024px) {
+      .wiki-container {
+        gap: 1.5rem;
+        padding: 1.5rem;
+      }
+
+      .wiki-sidebar {
+        flex: 0 0 240px;
+        padding: 1rem;
+        font-size: 0.9rem;
+      }
+
+      .wiki-content h1 {
+        font-size: 2rem;
+      }
+
+      .wiki-content h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .wiki-container {
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .wiki-sidebar {
+        position: relative;
+        top: auto;
+        flex: 1;
+        max-height: none;
+      }
+
+      .wiki-content h1 {
+        font-size: 1.8rem;
+      }
+
+      .wiki-content h2 {
+        font-size: 1.3rem;
+        margin-top: 2rem;
+      }
+    }
+
+    header.site {
+      background: rgba(0, 0, 0, 0.5);
+      border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+    }
+  </style>
+</head>
+<body class="wiki-page">
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="logo">A</span>
+      <span>Advocab<small>Vocabulary Deck Builder</small></span>
+    </a>
+    <nav class="top">
+      <span class="nav-links">
+        <a href="index.html#overview">Overview</a>
+        <a href="index.html#how">How it works</a>
+        <a href="user-guide.html" style="color: #3b82f6; font-weight: 600;">User Guide</a>
+        <a href="index.html#faq">FAQ</a>
+      </span>
+      <a class="btn btn-primary" href="index.html#download">Download for Windows</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wiki-container">
+  <aside class="wiki-sidebar" id="sidebar">
+    <h3>Getting Started</h3>
+    <ul class="wiki-nav">
+      <li><a href="#setup">First-time setup</a></li>
+      <li><a href="#workflow">The workflow</a></li>
+    </ul>
+
+    <h3>Pages & Features</h3>
+    <ul class="wiki-nav">
+      <li><a href="#pages">Tour of the app</a>
+        <ul>
+          <li><a href="#import">Import</a></li>
+          <li><a href="#batch">Batch</a></li>
+          <li><a href="#queue">Queue</a></li>
+          <li><a href="#finalise">Finalise</a></li>
+          <li><a href="#vocab">My Vocab</a></li>
+          <li><a href="#settings">Settings</a></li>
+          <li><a href="#help">Help</a></li>
+          <li><a href="#lab">Lab</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>Intelligent Features</h3>
+    <ul class="wiki-nav">
+      <li><a href="#llm">LLM features</a></li>
+      <li><a href="#images">Image generation</a></li>
+      <li><a href="#audio">Audio (TTS)</a></li>
+      <li><a href="#anki">Anki integration</a></li>
+    </ul>
+
+    <h3>Content & Organization</h3>
+    <ul class="wiki-nav">
+      <li><a href="#register">Register (formality)</a></li>
+      <li><a href="#multilang">Multi-language support</a></li>
+    </ul>
+
+    <h3>Reference</h3>
+    <ul class="wiki-nav">
+      <li><a href="#keyboard">Keyboard shortcuts</a></li>
+      <li><a href="#troubleshooting">Tips & troubleshooting</a></li>
+      <li><a href="#help">Getting help</a></li>
+    </ul>
+  </aside>
+
+  <main class="wiki-content">
+    <h1>User Guide</h1>
+    <p>A vocabulary mining engine for serious language learners (C1+). Import text from multiple sources, filter out words you already know, approve the keepers, polish them with AI enrichment, and export to Anki as finished cloze cards — all locally, all on your machine.</p>
+
+    <div class="section-nav">
+      <a href="#setup">Setup</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#batch">Batch Page</a>
+      <a href="#llm">LLM Features</a>
+      <a href="#keyboard">Shortcuts</a>
+      <a href="#troubleshooting">Troubleshooting</a>
+    </div>
+
+    <hr style="border: none; margin: 3rem 0; border-top: 1px solid rgba(59, 130, 246, 0.2);">
+
+    <section id="setup">
+      <h2>1. First-time setup</h2>
+
+      <h3>Installation & setup</h3>
+      <ol>
+        <li><strong>Download</strong> — grab <code>AdvocabDeckBuilder-lite.zip</code> or the Inno Setup installer from the website.</li>
+        <li><strong>Install</strong> — extract the zip, or run the installer. Everything you need is bundled.</li>
+        <li><strong>Run the app</strong> — double-click <code>AdvocabDesktop.exe</code>.</li>
+        <li><strong>Setup wizard</strong> — on first run, it walks you through:
+          <ul>
+            <li>Selecting your learning language.</li>
+            <li>Choosing to install AI extras (spaCy, models, Ollama integration) on demand.</li>
+            <li>Pointing to your local Ollama server or remote LLM endpoint.</li>
+            <li>Verifying Anki + AnkiConnect are reachable.</li>
+          </ul>
+        </li>
+      </ol>
+
+      <p><strong>Configuration:</strong> Settings persist in <code>config.json</code> beside the exe (you can edit it for advanced tweaks without restarting).</p>
+
+      <h3>System requirements</h3>
+      <table>
+        <tr>
+          <th>Component</th>
+          <th>What you need</th>
+        </tr>
+        <tr>
+          <td><strong>OS</strong></td>
+          <td>Windows 10 / 11</td>
+        </tr>
+        <tr>
+          <td><strong>LLM</strong></td>
+          <td>Ollama (free, local) or any OpenAI-compatible endpoint</td>
+        </tr>
+        <tr>
+          <td><strong>Anki</strong></td>
+          <td>Anki Desktop + AnkiConnect add-on (open when minting/syncing)</td>
+        </tr>
+        <tr>
+          <td><strong>Internet</strong></td>
+          <td>Optional (needed for remote LLM, TTS, image generation)</td>
+        </tr>
+      </table>
+    </section>
+
+    <section id="workflow">
+      <h2>2. The workflow</h2>
+
+      <p>Five-stage pipeline that turns raw text into Anki cards:</p>
+
+      <ol>
+        <li><strong>Import</strong> — choose a source (Kindle, paste, URL, YouTube, CSV). The app extracts candidate words/phrases.</li>
+        <li><strong>Batch</strong> — review candidates in a fast, keyboard-driven table. Approve the ones worth learning, discard the rest.</li>
+        <li><strong>Queue</strong> — watch the background LLM worker mine idioms and process your batch (non-blocking).</li>
+        <li><strong>Finalise</strong> — polish each card (fix translation, add mnemonic, generate example, ask the LLM, add images/audio).</li>
+        <li><strong>Mint</strong> — push approved cards to Anki.</li>
+      </ol>
+
+      <div class="wiki-box">
+        <strong>✓ Non-blocking background work:</strong> A background LLM worker mines idioms while you triage. An image scheduler can generate mnemonic images automatically.
+      </div>
+    </section>
+
+    <section id="pages">
+      <h2>3. Pages & features</h2>
+
+      <h3 id="import">Page 0: Import</h3>
+      <p>Pick a source and choose how to process it:</p>
+
+      <p><strong>Sources:</strong></p>
+      <ul>
+        <li><strong>Paste / URL</strong> — paste text directly, or give a URL and click <em>Fetch</em> to pull article text.</li>
+        <li><strong>YouTube</strong> — paste a video URL/ID; captions are downloaded and split by sentence.</li>
+        <li><strong>Kindle</strong> — import words you looked up on a connected Kindle device (lemmatised, frequency filter bypassed).</li>
+        <li><strong>CSV</strong> — upload a <code>.csv</code> or <code>.tsv</code> file; map which column is the term.</li>
+      </ul>
+
+      <p><strong>Ingest modes:</strong></p>
+      <ul>
+        <li><strong>Single words</strong> — deterministic: spaCy extracts content words, filters by frequency, stages them for review. No LLM, instant results.</li>
+        <li><strong>Phrases</strong> — the background LLM worker mines idioms and set phrases from each sentence asynchronously.</li>
+        <li><strong>Both</strong> — run both tracks simultaneously.</li>
+      </ul>
+
+      <p><strong>Processing rules:</strong> Import as (Lemma/Surface/Both), keep POS, min length, frequency band, strip endings, exclude names/places, skip already-known, keep context, deduplication, harvest grammatical phrases.</p>
+
+      <h3 id="batch">Page 1: Batch</h3>
+      <p>A dense, keyboard-first table of candidate words/phrases. Each row shows target, POS, gloss, frequency rank, register, context, and any custom columns.</p>
+
+      <p><strong>Filtering:</strong> Frequency band, POS, register, names/places, unranked only, custom columns.</p>
+
+      <p><strong>Keyboard shortcuts:</strong></p>
+      <ul>
+        <li><code>Enter</code> — approve selected row(s) and auto-advance</li>
+        <li><code>Space</code> — mark selected row(s) as known</li>
+        <li><code>Ctrl+A</code> — select all visible rows</li>
+        <li><code>Ctrl+Enter</code> — approve all selected rows</li>
+        <li><code>Ctrl+Z</code> — undo last knockout</li>
+      </ul>
+
+      <p>Approved words go to <strong>Finalise</strong>; phrases are also enriched and sent there.</p>
+
+      <p><strong>Custom columns:</strong> Define your own LLM columns (e.g., "Classify into a category"). Click <strong>Add column</strong>, set label, type, and LLM prompt. Results render as a new column and are filterable.</p>
+
+      <h3 id="queue">Page 2: Queue</h3>
+      <p>The control room for background processing:</p>
+
+      <ul>
+        <li><strong>LLM Queue</strong> — live list of running/pending jobs (phrase mining, word enrichment, custom column generation).</li>
+        <li><strong>Worker controls</strong> — Start/Stop/Force Stop buttons.</li>
+        <li><strong>Connection status</strong> — LLM light green when Ollama is reachable; amber if a model isn't pulled.</li>
+        <li><strong>Settings tabs</strong> — per-function LLM configuration (Enrichment, Custom Columns, Ask the LLM, Image Generation, TTS).</li>
+      </ul>
+
+      <h3 id="finalise">Page 3: Finalise</h3>
+      <p>The per-card polish bench, split into three panes:</p>
+
+      <p><strong>Pending list (left):</strong> Mint selected (as-is), Enrich selected, Discard, or Select all.</p>
+
+      <p><strong>Edit pane (right, top):</strong> Target (with ▶ to speak + IPA), compound breakdown, translation (with sense picker), grammar, gender/plural, notes, cloze example, mnemonic (text + images).</p>
+
+      <p><strong>Buttons:</strong> Enrich selected (LLM polish), Generate images, Save (Ctrl+S), Mint.</p>
+
+      <p><strong>Ask the LLM pane (right, bottom):</strong> Chat assistant. Inject card context (toggle), speak responses (toggle), stream live.</p>
+
+      <h3 id="vocab">Page 4: My Vocab</h3>
+      <p>Browse your entire vocabulary matrix. Columns: Status (click to toggle), Lemma, Frequency rank, Register, Source, SRS data (if synced).</p>
+
+      <p><strong>Actions:</strong> Sync from Anki (pull SRS stats), Seed from Lute, Delete.</p>
+
+      <h3 id="settings">Page 5: Settings</h3>
+      <p>Tabs: General, Language, LLM, Frequency, Grammar tags, Anki, Image Generation, TTS, Dictionary building, Advanced.</p>
+
+      <h3 id="help">Page 6: Help</h3>
+      <p>Quick reference — keyboard shortcuts, connection status, links to full docs.</p>
+
+      <h3 id="lab">Page 7: Lab</h3>
+      <p>Experimental features:</p>
+
+      <ul>
+        <li><strong>Language Brain</strong> — 2D semantic graph of known/learning vocabulary. Nodes coloured by mastery (if SRS synced). Domain overlays, music modes.</li>
+        <li><strong>Domains</strong> — track progress within semantic domains (Food, Travel, Work, etc.). Top gaps for each domain. Create custom domains from seed phrases.</li>
+      </ul>
+    </section>
+
+    <section id="llm">
+      <h2>4. LLM features (Intelligence)</h2>
+
+      <p>All optional — the app works great for deterministic workflows (dictionary, lemmatization, frequency, IPA).</p>
+
+      <h3>Core workflows</h3>
+      <ul>
+        <li><strong>Enrich</strong> — picks best sense, generates mnemonic, creates fresh example, adds usage notes.</li>
+        <li><strong>Custom LLM columns</strong> — define domain-specific metadata; generated as background jobs.</li>
+        <li><strong>Ask the LLM</strong> — interactive chat with streaming output and optional card context.</li>
+        <li><strong>Phrase mining</strong> — background worker continuously mines idioms from staged sentences.</li>
+      </ul>
+
+      <h3>Reasoning models</h3>
+      <p>LLMs with chain-of-thought (thinking tags) fully supported. Extra token headroom automatically allocated. Enable in <strong>Settings → LLM → [function tab] → Reasoning model (toggle)</strong>.</p>
+
+      <h3>Master LLM switch</h3>
+      <p>Global <strong>"Enable LLM processing"</strong> toggle in <strong>Settings → LLM</strong>. When unchecked: all LLM features disabled, deterministic features keep working.</p>
+
+      <h3>Remote APIs & per-function routing</h3>
+      <p>Route individual functions to OpenAI, Groq, Together, OpenRouter, etc. for cost savings or better models.</p>
+
+      <div class="wiki-box">
+        <strong>Setup:</strong> Settings → LLM → Remote APIs & function routing → Manage API profiles. Add a profile (name, base URL, API key, model), then assign each function (Import/Enrich/Custom Columns/Ask) to a profile.
+      </div>
+    </section>
+
+    <section id="images">
+      <h2>5. Image generation (mnemonics)</h2>
+
+      <p><strong>Three providers:</strong></p>
+      <ul>
+        <li><strong>Local diffusion</strong> (Stable Diffusion, private) — ~20–40 sec/image on modern GPU.</li>
+        <li><strong>Pollinations</strong> (cloud, free) — excellent quality, ~5 sec/image. Requires internet.</li>
+        <li><strong>Wikimedia embeddings</strong> (search Commons, free) — instant, depends on available images. Requires internet.</li>
+      </ul>
+
+      <p><strong>Scheduling:</strong> Immediate (on-demand) or Scheduled (daily batch at a set time).</p>
+
+      <p>Choose in <strong>Settings → Image Generation → Provider</strong> and <strong>Mode</strong>.</p>
+    </section>
+
+    <section id="audio">
+      <h2>6. Audio (TTS)</h2>
+
+      <p><strong>Usage:</strong> ▶ in Finalise's Edit pane, batch TTS button, speak chat responses, auto-exported to Anki.</p>
+
+      <p><strong>Four engines:</strong></p>
+      <ul>
+        <li><strong>gTTS</strong> (default, online, free) — Google's TTS, auto-detected language. Fallback engine.</li>
+        <li><strong>Local (pyttsx3)</strong> (offline, OS voices) — system voices, set voice and speech rate.</li>
+        <li><strong>Remote (OpenAI-compatible)</strong> (any TTS API) — commercial voices (OpenAI, ElevenLabs, etc.).</li>
+        <li><strong>Custom (Coqui XTTS)</strong> (advanced) — fine-tuned XTTS model locally (most users prefer Remote).</li>
+      </ul>
+
+      <p>Choose in <strong>Settings → TTS</strong> or LLM Status page's TTS tab.</p>
+
+      <p><strong>Fallback:</strong> If synthesis fails, silently falls back to gTTS. Check app log for details.</p>
+    </section>
+
+    <section id="anki">
+      <h2>7. Anki integration</h2>
+
+      <h3>Minting cards</h3>
+      <p><strong>Mint</strong> (Finalise page) creates finished cards in your target Anki deck. Creates or grows the note type as needed. Marks the vocab entry as <code>learning</code> in the app (won't be re-mined).</p>
+
+      <h3>Seeding from Anki</h3>
+      <p><strong>Seed from decks</strong> (Settings → Anki) marks words already in your Anki deck(s) as <code>learning</code>. Mining skips them (no duplicates).</p>
+
+      <h3>SRS data sync</h3>
+      <p><strong>Sync from Anki</strong> (My Vocab page) pulls scheduling data from your Anki collection: review counts, ease factor, intervals, lapses, mastery score, maturity classification.</p>
+
+      <p>Use for: seeing progress in My Vocab (Maturity, Mastery %, Lapses columns), colouring Language Brain nodes by mastery, tracking progress within semantic domains.</p>
+
+      <div class="wiki-box">
+        <strong>Requirements:</strong> Keep Anki + AnkiConnect running when minting, seeding, or syncing SRS data.
+      </div>
+    </section>
+
+    <section id="register">
+      <h2>8. Register (formality levels)</h2>
+
+      <p><strong>Register tags</strong> indicate formality (German only, for now):</p>
+      <ul>
+        <li><strong>Gehoben</strong> (elevated, formal, literary) — speeches, academic writing.</li>
+        <li><strong>Standard</strong> (neutral, default) — everyday usage.</li>
+        <li><strong>Umgangssprachlich</strong> (colloquial, informal) — casual speech, friends.</li>
+        <li><strong>Jugendsprache</strong> (youth slang) — current slang, often ephemeral.</li>
+        <li><strong>Vulgär</strong> (vulgar, offensive) — profanity; marked for awareness.</li>
+      </ul>
+
+      <p><strong>In the app:</strong> Shows on Batch rows (colour-coded). Filterable. Exported to Anki on minted cards. Used in domain-mastery gaps.</p>
+
+      <p><strong>Certainty threshold:</strong> Settings → Register certainty (0–100; higher = stricter).</p>
+    </section>
+
+    <section id="multilang">
+      <h2>9. Multi-language support</h2>
+
+      <p><strong>10 languages:</strong> German, French, Italian, Spanish, Portuguese, Dutch, Russian, Japanese, Chinese, Greek. Japanese support is <strong>experimental</strong>.</p>
+
+      <h3>Language switching</h3>
+      <ol>
+        <li>Settings → Language → Active language (pick from dropdown).</li>
+        <li>App downloads missing assets: spaCy model, frequency list, dictionary.</li>
+        <li>Readiness indicator shows ✓ (ready) or ○ (missing) for each language.</li>
+      </ol>
+
+      <h3>Per-language data</h3>
+      <p>Each language gets its own SQLite database (<code>advocab_de.db</code>, etc.) storing your vocabulary, phrases, SRS sync data, and domain definitions. Switching languages switches database automatically.</p>
+
+      <h3>Per-language grammar tags</h3>
+      <p>Settings → Grammar tags shows language-specific toggles (German: tense/mood/number/case/gender; Japanese: particle role/verb form/formality; others: fallback set).</p>
+
+      <h3>Japanese (experimental)</h3>
+      <ul>
+        <li>Sudachi tokenizer — superior to MeCab for modern Japanese.</li>
+        <li>Furigana — readings with ruby annotations (enabled by default).</li>
+        <li>Particle detection — は/が/を/に/で/etc. recognized and prefixed with functional labels.</li>
+        <li>Dictionary ranking — POS-aware lookup (particles shown before syllables).</li>
+        <li>Spaceless text handling — no spaces; cloze and deduplication work correctly.</li>
+      </ul>
+
+      <p><strong>Gaps:</strong> Full JMdict dictionary (pending licence clarity), IPA disabled for JA (espeak-ng poor support).</p>
+    </section>
+
+    <section id="keyboard">
+      <h2>10. Keyboard shortcuts</h2>
+
+      <h3>Batch page</h3>
+      <table>
+        <tr>
+          <th>Key</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td><code>Enter</code></td>
+          <td>Approve selected row(s) and auto-advance</td>
+        </tr>
+        <tr>
+          <td><code>Space</code></td>
+          <td>Mark selected row(s) as known</td>
+        </tr>
+        <tr>
+          <td><code>Ctrl+A</code></td>
+          <td>Select all visible rows</td>
+        </tr>
+        <tr>
+          <td><code>Ctrl+Enter</code></td>
+          <td>Approve all selected rows</td>
+        </tr>
+        <tr>
+          <td><code>Ctrl+Z</code></td>
+          <td>Undo last knockout</td>
+        </tr>
+      </table>
+
+      <h3>Finalise page</h3>
+      <table>
+        <tr>
+          <th>Key</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td><code>Ctrl+S</code></td>
+          <td>Save editor changes without minting</td>
+        </tr>
+      </table>
+
+      <h3>Global</h3>
+      <table>
+        <tr>
+          <th>Key</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td><code>Alt+1</code> to <code>Alt+8</code></td>
+          <td>Jump to page (Import / Batch / Queue / Finalise / My Vocab / Settings / Help / Lab)</td>
+        </tr>
+      </table>
+    </section>
+
+    <section id="troubleshooting">
+      <h2>11. Tips & troubleshooting</h2>
+
+      <h3>Setup & connectivity</h3>
+      <ul>
+        <li><strong>"Anki not reachable"</strong> — make sure Anki is running and AnkiConnect is installed. Click Settings → Check connections.</li>
+        <li><strong>"LLM unavailable"</strong> — the app offers to pull a missing model, or run <code>ollama pull gemma4:e2b</code> manually.</li>
+        <li><strong>"Kindle light amber"</strong> — Kindle sync requires a connected device (USB) with a <code>vocab.db</code> file.</li>
+      </ul>
+
+      <h3>Dictionary & lemmatization</h3>
+      <ul>
+        <li><strong>"Word has no definition"</strong> — likely a tricky compound or inflected form. Try Settings → Dictionary → Build dictionary.</li>
+        <li><strong>"Odd frequency rank"</strong> — lemmatization edge cases. Try Settings → Frequency → Build lemma-grouped frequency.</li>
+        <li><strong>"IPA and compound badges are blank"</strong> — optional extras not installed. Install in Settings → AI Extras.</li>
+      </ul>
+
+      <h3>LLM & background processing</h3>
+      <ul>
+        <li><strong>"LLM queue keeps growing"</strong> — worker is slower than you're importing. Pause it (Queue → Stop) or give it more time.</li>
+        <li><strong>"Worker crashes"</strong> — worker detects a crash, backs off, and after repeated crashes quarantines the batch rather than looping forever.</li>
+        <li><strong>LLM processing disabled</strong> — if you toggled Settings → LLM → Enable LLM processing to off, re-enable to resume.</li>
+      </ul>
+
+      <h3>Image generation & audio</h3>
+      <ul>
+        <li><strong>"Image generation failed silently"</strong> — check app log (<code>advocab.image</code> logger). Images fail gracefully.</li>
+        <li><strong>"TTS voice sounds wrong"</strong> — you're using gTTS (default). Switch to Local (pyttsx3) for OS voices, or Remote for commercial voices.</li>
+        <li><strong>"TTS fell back to gTTS"</strong> — your chosen TTS engine failed; check app log for why.</li>
+      </ul>
+
+      <h3>Anki export</h3>
+      <ul>
+        <li><strong>"Cards didn't mint"</strong> — make sure Anki + AnkiConnect are running. Click Settings → Check connections.</li>
+        <li><strong>"Note type mismatch"</strong> — the app will grow the existing note type (add new fields). Check your Anki deck to confirm.</li>
+      </ul>
+
+      <h3>Performance & disk space</h3>
+      <ul>
+        <li><strong>"App is slow"</strong> — large imports or slow LLM inference are expected. Processing happens in background while you triage.</li>
+        <li><strong>"Disk space growing fast"</strong> — images stored in <code>web_media/</code> (~1–5 MB per 100 images). Audio stored in Anki's media folder. Both expected to grow.</li>
+      </ul>
+    </section>
+
+    <section id="help">
+      <h2>12. Getting help</h2>
+
+      <ul>
+        <li><strong>Keyboard shortcuts & tips</strong> — see Help page in the app, or §10 of this guide.</li>
+        <li><strong>Architecture & design</strong> — see <code>APP_OVERVIEW.md</code> (code structure, data model, background daemons).</li>
+        <li><strong>Bugs or feature requests</strong> — see <code>BACKLOG.md</code> (known issues, deferred features).</li>
+        <li><strong>Advanced setup</strong> — see <code>DEVELOPER_GUIDE.md</code> (custom columns, extending the app).</li>
+      </ul>
+
+      <p style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(59, 130, 246, 0.2); color: rgba(255, 255, 255, 0.6); font-size: 0.9rem;">
+        Last updated: July 2026 | <a href="index.html" style="color: #3b82f6; text-decoration: none;">← Back to home</a>
+      </p>
+    </section>
+  </main>
+</div>
+
+<script>
+  // Highlight active section in sidebar
+  const sections = document.querySelectorAll('[id]');
+  const navLinks = document.querySelectorAll('.wiki-nav a');
+
+  function updateActiveLink() {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      if (window.scrollY >= sectionTop - 200) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+
+  // Smooth scroll behavior
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
