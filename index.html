@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Advocab — Advanced Vocabulary Deck Builder for serious language learners</title>
+  <title>Rosella — Advanced Vocabulary Deck Builder for serious language learners</title>
   <meta name="description" content="A local-first vocabulary mining engine for advanced (C1+) language learners. Harvest words from Kindle, YouTube, articles and text, filter what you already know, and mint polished cloze cards to Anki — all on your own machine." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600;650;700;800;850&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%233b82f6'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='800'>A</text></svg>" />
+  <link rel="icon" type="image/svg+xml" href="img/rosella-favicon.svg" />
 </head>
 <body>
 
@@ -17,8 +17,8 @@
 <header class="site">
   <div class="wrap">
     <a class="brand" href="#top">
-      <span class="logo">A</span>
-      <span>Advocab<small>Vocabulary Deck Builder</small></span>
+      <img class="logo" src="img/rosella-mark.svg" alt="Rosella" width="34" height="34" />
+      <span>Rosella<small>Vocabulary Deck Builder</small></span>
     </a>
     <nav class="top">
       <span class="nav-links">
@@ -47,7 +47,7 @@
       </div>
       <div class="meta">
         <span><span class="dot-ok"></span> <b>Windows 10 / 11</b></span>
-        <span><span class="dot-ok"></span> <b>macOS (Apple Silicon &amp; Intel)</b></span>
+        <span><span class="dot"></span> <b>macOS coming soon</b></span>
         <span>🔒 <b>Runs entirely on your machine</b></span>
         <span>🗝 <b>No account, no sign-in</b></span>
       </div>
@@ -56,7 +56,7 @@
     <!-- Hero visual: real Batch screen screenshot -->
     <div class="show-media">
       <div class="screenshot-wrap">
-        <img src="img/screenshots/batch.png" alt="Advocab Batch screen — vocabulary review table with IPA, definitions, frequency ranks, grammar annotations and interlinear context" class="screenshot-img hero-screenshot" />
+        <img src="img/screenshots/batch.png" alt="Rosella Batch screen — vocabulary review table with IPA, definitions, frequency ranks, grammar annotations and interlinear context" class="screenshot-img hero-screenshot" />
       </div>
     </div>
   </div>
@@ -68,7 +68,7 @@
     <div class="section-head">
       <span class="eyebrow">How the app works</span>
       <h2 class="section-title">A pipeline, not just a word list</h2>
-      <p class="section-lede">Advocab is built around one idea: most words aren't worth your attention, and the few that are deserve a great card. It gets you there in five stages.</p>
+      <p class="section-lede">Rosella is built around one idea: most words aren't worth your attention, and the few that are deserve a great card. It gets you there in five stages.</p>
     </div>
     <div class="pipeline">
       <div class="pipe-step">
@@ -133,7 +133,7 @@
         <div class="show-text">
           <span class="kick">① Import</span>
           <h3>Bring words in from anywhere</h3>
-          <p>Paste an article URL, drop in text, load your connected Kindle's look-up history, or import a CSV. Check coverage before you commit — Advocab shows exactly how much of the text you already know and highlights new words in context.</p>
+          <p>Paste an article URL, drop in text, load your connected Kindle's look-up history, or import a CSV. Check coverage before you commit — Rosella shows exactly how much of the text you already know and highlights new words in context.</p>
           <ul>
             <li>Five source types in one panel: Paste / URL, YouTube, Kindle, CSV, Language Brain</li>
             <li>Coverage bar splits the text into known / learning / new at a glance</li>
@@ -142,7 +142,7 @@
         </div>
         <div class="show-media">
           <div class="screenshot-wrap">
-            <img src="img/screenshots/import.png" alt="Advocab Import screen — URL import with real-time coverage bar and new words highlighted in context" class="screenshot-img" />
+            <img src="img/screenshots/import.png" alt="Rosella Import screen — URL import with real-time coverage bar and new words highlighted in context" class="screenshot-img" />
           </div>
         </div>
       </div>
@@ -161,7 +161,7 @@
         </div>
         <div class="show-media">
           <div class="screenshot-wrap">
-            <img src="img/screenshots/batch.png" alt="Advocab Batch screen — sortable word table with IPA, frequency ranks, grammar tags and interlinear context strip" class="screenshot-img" />
+            <img src="img/screenshots/batch.png" alt="Rosella Batch screen — sortable word table with IPA, frequency ranks, grammar tags and interlinear context strip" class="screenshot-img" />
           </div>
         </div>
       </div>
@@ -180,7 +180,7 @@
         </div>
         <div class="show-media">
           <div class="screenshot-wrap">
-            <img src="img/screenshots/finalise.png" alt="Advocab Finalise screen — three-pane card editor with LLM chat, definition fields and grammar-annotated cloze context" class="screenshot-img" />
+            <img src="img/screenshots/finalise.png" alt="Rosella Finalise screen — three-pane card editor with LLM chat, definition fields and grammar-annotated cloze context" class="screenshot-img" />
           </div>
         </div>
       </div>
@@ -190,7 +190,7 @@
         <div class="show-text">
           <span class="kick">④ Cloze</span>
           <h3>Grammar drills from sentences you've read</h3>
-          <p>Paste any text and Advocab finds every grammatical decision point — article choice, verb conjugation, preposition, plural form, adjective ending. Each becomes its own targeted cloze card. Pick the patterns worth drilling and mint them straight to Anki.</p>
+          <p>Paste any text and Rosella finds every grammatical decision point — article choice, verb conjugation, preposition, plural form, adjective ending. Each becomes its own targeted cloze card. Pick the patterns worth drilling and mint them straight to Anki.</p>
           <ul>
             <li>Six decision types: articles, verb conjugation, prepositions, plurals, reflexive pronouns, adjective endings</li>
             <li>Dozens of drill cards extracted from a single paragraph of real text</li>
@@ -199,7 +199,7 @@
         </div>
         <div class="show-media">
           <div class="screenshot-wrap">
-            <img src="img/screenshots/cloze.png" alt="Advocab Cloze screen — grammar decision points extracted from real text: article choice, verb conjugation, preposition choice, plural forms" class="screenshot-img" />
+            <img src="img/screenshots/cloze.png" alt="Rosella Cloze screen — grammar decision points extracted from real text: article choice, verb conjugation, preposition choice, plural forms" class="screenshot-img" />
           </div>
         </div>
       </div>
@@ -218,7 +218,7 @@
         </div>
         <div class="show-media">
           <div class="screenshot-wrap">
-            <img src="img/screenshots/language-brain.png" alt="Advocab Language Brain — semantic galaxy map of studied vocabulary coloured by known/learning/unknown status" class="screenshot-img" />
+            <img src="img/screenshots/language-brain.png" alt="Rosella Language Brain — semantic galaxy map of studied vocabulary coloured by known/learning/unknown status" class="screenshot-img" />
           </div>
         </div>
       </div>
@@ -271,7 +271,7 @@
     <div class="steps">
       <div class="step"><div class="num">1</div><div>
         <h3>Download &amp; install</h3>
-        <p><b>Windows:</b> Grab the installer below and run it. Installs per-user to <code>%LOCALAPPDATA%</code> — no admin rights required. The installer sets up the WebView2 runtime if needed.<br><br><b>macOS:</b> Download the ZIP, unzip it, and drag <code>AdvocabDesktop.app</code> to your Applications folder. Right-click → Open on first launch to approve the unsigned app.</p>
+        <p><b>Windows:</b> Grab the installer below and run it. Installs per-user to <code>%LOCALAPPDATA%</code> — no admin rights required. The installer sets up the WebView2 runtime if needed.<br><br><b>macOS:</b> A native build is coming soon.</p>
       </div></div>
       <div class="step"><div class="num">2</div><div>
         <h3>First launch &amp; setup wizard</h3>
@@ -305,78 +305,30 @@
       <h2 style="margin-top:16px">Download the Lite desktop app</h2>
       <p>A single app, everything on your own machine — no account, no cloud, no telemetry. Add the heavy AI extras later, from inside the app, only if you want them.</p>
 
-      <!-- Platform tabs -->
       <div style="display:flex;gap:12px;margin:28px 0 20px;flex-wrap:wrap;">
-
-        <!-- Windows -->
         <div style="flex:1;min-width:280px;background:hsl(var(--surface-2));border:1px solid hsl(var(--border));border-radius:12px;padding:24px;">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
             <span style="font-size:1.5rem;">🪟</span>
-            <div>
-              <div style="font-weight:700;font-size:1rem;">Windows</div>
-              <div style="font-size:.8rem;color:hsl(var(--text-muted));">10 (1803+) or 11 · x64</div>
-            </div>
+            <div><div style="font-weight:700;font-size:1rem;">Windows</div><div style="font-size:.8rem;color:hsl(var(--text-muted));">10 (1803+) or 11 · x64</div></div>
           </div>
-
-          <!-- v1.1.0 — current release -->
           <div class="release-current">
-            <div class="release-header">
-              <span class="release-badge">Latest</span>
-              <span class="release-version">v1.1.0</span>
-              <span class="release-date">8 July 2026</span>
-            </div>
+            <div class="release-header"><span class="release-badge">Latest</span><span class="release-version">v1.2.0</span><span class="release-date">12 July 2026</span></div>
             <ul class="release-notes">
-              <li><b>Adaptive Explanations</b> — the AI Tutor chat can now calibrate its explanations to your own vocabulary. Enable the <em>Adaptive</em> toggle and it finds words you already know that are semantically close to the new word and uses them as bridges, so explanations land in the context of what you already understand.</li>
-              <li><b>Proficiency level setting</b> — Settings → Language &amp; Dictionary now has a <em>Declared level</em> field (CEFR for European languages; JLPT, HSK or TOPIK for Japanese/Chinese/Korean) so the tutor can match its grammar and vocabulary complexity to where you actually are.</li>
-              <li><b>Markdown rendering in chat</b> — AI Tutor responses now render with full formatting: numbered lists, bold, italic, code blocks and headings.</li>
-              <li><b>Grammar Exposure Tree</b> — a new Lab sub-tab shows a living tree of German grammar patterns evidenced from sentences you've seen, showing which forms you've been exposed to and how often.</li>
-              <li><b>Anki review sync</b> — Advocab can now pull your Anki review history (intervals, pass rates, lapses) and compute a mastery score for every word you've studied.</li>
-              <li><b>Language Brain: domains &amp; constellations</b> — the semantic vocabulary map gains two new views. <em>Domains</em> groups your words into topic clouds (food, travel, politics…). <em>Constellations</em> draws star-pattern clusters around semantically tight groups.</li>
+              <li><b>Rosella is here</b> — a new constellation-bird identity for the app and installer.</li>
+              <li><b>Smarter cloze practice</b> — build grammar and collocation cards from the texts you import, with more precise span selection and preserved analysis when you return later.</li>
+              <li><b>Richer sentence annotation</b> — clearer grammar-aware highlights and an expanded Grammar Exposure Tree help you see the patterns in the language you read.</li>
+              <li><b>Language Brain Flight quiz</b> — fly near a word and press <em>Q</em> to test yourself by translation or monolingual multiple choice.</li>
+              <li><b>Music and map upgrades</b> — 28 new classical progressions, automatic cycling, a wider spread control, and smoother exploration.</li>
+              <li><b>Polish and fixes</b> — improved imports, language handling, sidecar compatibility, and desktop reliability.</li>
             </ul>
-            <div class="cta">
-              <a class="btn btn-primary" href="downloads/AdvocabDeckBuilder-1.1.0-setup.exe" download>↓ Download v1.1.0 <span class="sz">· .exe · 63 MB</span></a>
-            </div>
+            <div class="cta"><a class="btn btn-primary" href="downloads/RosellaDeckBuilder-1.2.0-setup.exe" download>↓ Download v1.2.0 <span class="sz">· .exe · 64 MB</span></a></div>
           </div>
-
-          <div class="release-prev" style="margin-top:16px;">
-            <span class="release-prev-label">Previous version:</span>
-            <a href="downloads/AdvocabDeckBuilder-1.0.0-setup.exe" download class="release-prev-link">v1.0.0 · .exe · 59 MB</a>
-            <span class="release-prev-date">(released 6 July 2026)</span>
-          </div>
+          <div class="release-prev" style="margin-top:16px;"><span class="release-prev-label">Previous version:</span><a href="downloads/AdvocabDeckBuilder-1.1.0-setup.exe" download class="release-prev-link">v1.1.0 · .exe · 63 MB</a><span class="release-prev-date">(released 8 July 2026)</span></div>
         </div>
-
-        <!-- macOS -->
         <div style="flex:1;min-width:280px;background:hsl(var(--surface-2));border:1px solid hsl(var(--border));border-radius:12px;padding:24px;">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
-            <span style="font-size:1.5rem;"></span>
-            <div>
-              <div style="font-weight:700;font-size:1rem;">macOS</div>
-              <div style="font-size:.8rem;color:hsl(var(--text-muted));">Apple Silicon &amp; Intel · macOS 12+</div>
-            </div>
-          </div>
-
-          <div class="release-current">
-            <div class="release-header">
-              <span class="release-badge">New</span>
-              <span class="release-version">v1.1.0</span>
-              <span class="release-date">9 July 2026</span>
-            </div>
-            <ul class="release-notes">
-              <li>Full feature parity with the Windows build — same pipeline, same UI</li>
-              <li>Native WebKit window — no Electron, no browser tab</li>
-              <li>All AI extras (spaCy, embeddings, image generation) install on demand from inside the app</li>
-              <li><b>Note:</b> app is unsigned — right-click → Open on first launch to approve</li>
-            </ul>
-            <div class="cta">
-              <a class="btn btn-primary" href="https://github.com/Gerardiebla/Advocab-website/releases/download/v1.1.0-macos/AdvocabDeckBuilder-lite.zip">↓ Download v1.1.0 <span class="sz">· .zip · 62 MB</span></a>
-            </div>
-          </div>
-
-          <div style="margin-top:16px;font-size:.82rem;color:hsl(var(--text-muted));line-height:1.5;">
-            <b>Install:</b> unzip → drag <code>AdvocabDesktop.app</code> to Applications → right-click → Open
-          </div>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;"><span style="font-size:1.5rem;"></span><div><div style="font-weight:700;font-size:1rem;">macOS</div><div style="font-size:.8rem;color:hsl(var(--text-muted));">Apple Silicon &amp; Intel</div></div></div>
+          <div class="release-current"><div class="release-header"><span class="release-badge">Coming soon</span></div><p style="margin:0;line-height:1.6;">A native macOS build is in development. We’ll publish it here once it has been built and verified.</p></div>
         </div>
-
       </div>
 
       <div class="reqs">
@@ -401,13 +353,13 @@
       <h2 class="section-title">Good to know</h2>
     </div>
     <div class="faq">
-      <details open><summary>Is my data sent anywhere?</summary><p>No. Advocab is local-first: your vocabulary databases, config and any API keys live on your own disk. It works fully offline once set up. If you choose to point it at a cloud LLM, only the text you send for enrichment goes to that provider — everything else stays local.</p></details>
+      <details open><summary>Is my data sent anywhere?</summary><p>No. Rosella is local-first: your vocabulary databases, config and any API keys live on your own disk. It works fully offline once set up. If you choose to point it at a cloud LLM, only the text you send for enrichment goes to that provider — everything else stays local.</p></details>
       <details><summary>Do I need an OpenAI key or a GPU?</summary><p>Neither is required. The core mining pipeline is deterministic and runs on CPU. For idiom mining you can run a free local model with Ollama. A cloud LLM key is optional, and image/voice generation extras are entirely opt-in.</p></details>
       <details><summary>Which languages are supported?</summary><p>German is the default and most polished. French, Spanish, Italian, Portuguese, Russian and Dutch are supported, with experimental Japanese, Chinese and Korean. Each language is its own profile with separate databases.</p></details>
       <details><summary>Why is the download so small?</summary><p>The Lite build deliberately ships nothing language- or ML-specific. Lemmatization models, embeddings, image generation and voice install on demand from Settings → AI Extras into a sandboxed sidecar environment — so you only download what you'll actually use.</p></details>
       <details><summary>Do I have to use Anki?</summary><p>Anki is the export target and where you ultimately study, but you can import, review and finalise cards without it open. Cards mint to Anki when you have it running with the AnkiConnect add-on.</p></details>
-      <details><summary>Will it need admin rights or touch system files?</summary><p>No. On Windows it installs per-user into <code>%LOCALAPPDATA%</code>. On macOS, drag the app to Applications and run it from there — no install step, no admin. Either way, databases and generated media live beside the app, so upgrades and removal are clean.</p></details>
-      <details><summary>Why does macOS ask me to approve the app on first launch?</summary><p>The macOS build is not yet code-signed with an Apple Developer certificate. Right-click (or Control-click) the app and choose Open, then confirm — macOS remembers your choice and won't ask again. This is a standard step for unsigned apps distributed outside the Mac App Store.</p></details>
+      <details><summary>Will it need admin rights or touch system files?</summary><p>No. On Windows it installs per-user into <code>%LOCALAPPDATA%</code>. Your databases and generated media live beside the app, so upgrades and removal are clean.</p></details>
+      <details><summary>Is a macOS version available?</summary><p>Not yet. A native macOS build for Apple Silicon and Intel is in development and will be published here once it has been built and verified.</p></details>
     </div>
   </div>
 </section>
@@ -415,7 +367,7 @@
 <!-- ═══════════════════════ Footer ═══════════════════════ -->
 <footer class="site">
   <div class="wrap">
-    <div class="brand"><span class="logo">A</span><span>Advocab</span></div>
+    <div class="brand"><img class="logo" src="img/rosella-mark.svg" alt="" width="34" height="34" /><span>Rosella</span></div>
     <nav>
       <a href="#overview">Overview</a>
       <a href="#how">How it works</a>

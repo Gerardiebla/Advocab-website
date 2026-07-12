@@ -98,10 +98,7 @@ header.site {
 header.site .wrap { display: flex; align-items: center; gap: 20px; height: 66px; }
 .brand { display: flex; align-items: center; gap: 11px; font-weight: 800; letter-spacing: -.02em; font-size: 1.08rem; }
 .brand .logo {
-  width: 34px; height: 34px; border-radius: 9px; flex-shrink: 0;
-  background: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-2)));
-  display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 1.05rem;
-  box-shadow: 0 6px 18px -6px hsl(var(--accent) / .7);
+  width: 34px; height: 34px; flex-shrink: 0; display: block;
 }
 .brand small { display:block; font-size:.66rem; font-weight:500; letter-spacing:.04em; color:hsl(var(--ink-subtle)); text-transform:uppercase; }
 nav.top { margin-left: auto; display: flex; align-items: center; gap: 4px; }

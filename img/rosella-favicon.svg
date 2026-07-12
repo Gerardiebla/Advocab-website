@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Rosella">
+  <circle cx="16" cy="4.5" r="2" fill="#F4C430"/>
+  <path d="M16 7 C7 20 6 25 12 30 C14 24 18 24 20 30 C26 25 25 20 16 7 Z" fill="#2A6FB0"/>
+  <path d="M16 9 C11 20 10 24 14.5 28 L16 26 Z" fill="#17A2B8"/>
+  <path d="M16 9 C21 20 22 24 17.5 28 L16 26 Z" fill="#E63946"/>
+  <path d="M12.5 18 C11 23 11.5 26 14.5 28.5 L16 26 Z" fill="#2E8B57"/>
+  <path d="M19.5 18 C21 23 20.5 26 17.5 28.5 L16 26 Z" fill="#F3722C"/>
+</svg>
