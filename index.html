@@ -271,7 +271,7 @@
     <div class="steps">
       <div class="step"><div class="num">1</div><div>
         <h3>Download &amp; install</h3>
-        <p><b>Windows:</b> Grab the installer below and run it. Installs per-user to <code>%LOCALAPPDATA%</code> — no admin rights required. The installer sets up the WebView2 runtime if needed.<br><br><b>macOS:</b> Download the ZIP below, unzip it, and drag <b>AdvocabDesktop.app</b> to your Applications folder. On first launch, right-click → <em>Open</em> to bypass Gatekeeper (unsigned build).</p>
+        <p><b>Windows:</b> Grab the installer below and run it. Installs per-user to <code>%LOCALAPPDATA%</code> — no admin rights required. The installer sets up the WebView2 runtime if needed.<br><br><b>macOS:</b> Download the ZIP below and unzip it. Before moving <b>Rosella.app</b> to Applications, open Terminal and run: <code>xattr -cr ~/Downloads/Rosella.app</code> — this removes the Gatekeeper quarantine flag that macOS adds to apps downloaded from the internet. Then drag it to Applications and double-click to launch.</p>
       </div></div>
       <div class="step"><div class="num">2</div><div>
         <h3>First launch &amp; setup wizard</h3>
@@ -372,7 +372,7 @@
       <details><summary>Why is the download so small?</summary><p>The Lite build deliberately ships nothing language- or ML-specific. Lemmatization models, embeddings, image generation and voice install on demand from Settings → AI Extras into a sandboxed sidecar environment — so you only download what you'll actually use.</p></details>
       <details><summary>Do I have to use Anki?</summary><p>Anki is the export target and where you ultimately study, but you can import, review and finalise cards without it open. Cards mint to Anki when you have it running with the AnkiConnect add-on.</p></details>
       <details><summary>Will it need admin rights or touch system files?</summary><p>No. On Windows it installs per-user into <code>%LOCALAPPDATA%</code>. Your databases and generated media live beside the app, so upgrades and removal are clean.</p></details>
-      <details><summary>Is a macOS version available?</summary><p>Yes. A native macOS build for Apple Silicon and Intel is available in the Download section above. Unzip, drag the app to Applications, and right-click → <em>Open</em> on first launch to bypass Gatekeeper (the build is currently unsigned).</p></details>
+      <details><summary>Is a macOS version available?</summary><p>Yes. Download the ZIP from the Download section, unzip it, then open Terminal and run <code>xattr -cr ~/Downloads/Rosella.app</code> before moving it to Applications. This removes the Gatekeeper quarantine flag macOS adds to unsigned apps downloaded from the internet — without it you'll see a "damaged" error.</p></details>
     </div>
   </div>
 </section>
